@@ -1,7 +1,13 @@
 # Exercise-07-Multiplexer-and-De-multiplexer
-### AIM: To implement 4 X1 multiplexer and 1X4 de multiplexer using verilog and validate its outputs
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM:
+To implement 4 X1 multiplexer and 1X4 de multiplexer using verilog and validate its outputs
+
+### HARDWARE REQUIRED:  
+– PC, Cyclone II , USB flasher
+
+### SOFTWARE REQUIRED:   
+Quartus prime
+
 ### THEORY 
 
 ## What are Multiplexer and Demultiplexer?
@@ -47,17 +53,40 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
 
+1.Start the module using module projname().
+
+2.Declare the inputs and outputs along with the select lines according to the multiplexer and demultiplexer.
+
+3.Use wire to assign intermediate outputs.
+
+4.Use and,or and not gates to get the desired output.
+
+5.End the module.
+
+6.Generate RTL realization and timing diagrams.
 
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
 
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: Jagan a
+RegisterNumber:  212221230037
+
+PROGRAM:
+
+module mux4(s1,s2,io,it,ir,iu,y);
+input s1,s2,io,it,ir,iu;
+output y;
+wire a,b,c,d,e,f;
+assign e=~s1;
+assign f=~s2;
+assign a=io&e&f;
+assign b=it&e&s2;
+assign c=ir&s1&f;
+assign d=iu&s1&s2;
+assign y=a|b|c|d;
+endmodule
 
 
 
@@ -65,24 +94,59 @@ RegisterNumber:
 
 ### RTL LOGIC  
 
-
-
-
-
+![MUX](https://user-images.githubusercontent.com/94154683/171138341-1eeefc99-8d0b-483f-9e3e-2e725e17e7c1.png)
 
 
 
 ### TIMING DIGRAMS  
 
+![image](https://user-images.githubusercontent.com/94154683/171138383-40edc81e-4e26-49ac-94f2-7e099213e489.png)
+
+![image](https://user-images.githubusercontent.com/94154683/171138416-8f1c4f99-d66f-428a-92d4-a467fac010a7.png)
+
+![image](https://user-images.githubusercontent.com/94154683/171138453-bcfd031c-77cb-4ea3-9733-9f94a7120528.png)
+
+![image](https://user-images.githubusercontent.com/94154683/171138482-3dac8c6b-0378-43f3-9e08-401ddf81888b.png)
 
 
 
 
 ### TRUTH TABLE 
 
+![muxtt](https://user-images.githubusercontent.com/94154683/171184283-34e5304c-d2b1-4b68-aaa1-7cb4b8591524.jpg)
 
 
+### PROGRAM:
 
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: Jagan a
+RegisterNumber:  212221230037
+
+PROGRAM:
+module dm(s1,s2,i1,i2,i3,i4,y);
+input s1,s2,i1,i2,i3,i4;
+output y;
+wire a,b,c,d,e,f;
+assign e=~s1;
+assign f=~s2;
+assign a=i1&e&f;
+assign b=i2&e&s2;
+assign c=i3&s1&f;
+assign d=i4&s1&s2;
+assign y=a|b|c|d;
+endmodule
+
+### RTL LOGIC  
+![image](https://user-images.githubusercontent.com/94154683/171138991-5e761b81-aa56-4221-9d89-908a12220396.png)
+
+### TIMING DIAGRAM:
+
+![dmtt](https://user-images.githubusercontent.com/94154683/171184556-6e3d5e2c-0b8d-4b23-a5dc-071238e3f9a8.png)
+
+### TRUTH TABLE:
+
+![dd](https://user-images.githubusercontent.com/94154683/171184657-372c166d-d88f-4e70-8644-cb47d5092f01.png)
 
 
 ### RESULTS 
+Thus the program to design a 4x1 multiplexer and 1x4 demultiplexer is done successful.
